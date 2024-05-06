@@ -28,52 +28,52 @@ else
 fi
 }
 
-# dnf install maven -y &>> $logfile
-# validate $? "installing maven"
+dnf install maven -y &>> $logfile
+validate $? "installing maven"
 
 
-# useradd roboshop  &>> $logfile
-# validate $? "creating roboshop user"
+useradd roboshop  &>> $logfile
+validate $? "creating roboshop user"
 
-# mkdir /app  &>> $logfile
-# validate $? "creating app directory"
+mkdir /app  &>> $logfile
+validate $? "creating app directory"
 
-# curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip  &>> $logfile
-# validate $? "downloading shipping zip files"
+curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip  &>> $logfile
+validate $? "downloading shipping zip files"
 
-# cd /app  &>> $logfile
-# validate $? "going into app directory"
+cd /app  &>> $logfile
+validate $? "going into app directory"
 
-# unzip /tmp/shipping.zip  &>> $logfile
-# validate $? "unzipping shipping zip files"
+unzip /tmp/shipping.zip  &>> $logfile
+validate $? "unzipping shipping zip files"
 
-# cd /app  &>> $logfile
-# validate $? "going into app directory"
+cd /app  &>> $logfile
+validate $? "going into app directory"
 
-# mvn clean package  &>> $logfile
-# validate $? "downloading dependencies"
+mvn clean package  &>> $logfile
+validate $? "downloading dependencies"
 
-# mv target/shipping-1.0.jar shipping.jar  &>> $logfile
-# validate $? "moving into shipping jar file"
+mv target/shipping-1.0.jar shipping.jar  &>> $logfile
+validate $? "moving into shipping jar file"
 
-# cp $code_dir/shipping.service  /etc/systemd/system/shipping.service  &>> $logfile
-# validate $? "copying shipping service"
+cp $code_dir/shipping.service  /etc/systemd/system/shipping.service  &>> $logfile
+validate $? "copying shipping service"
 
  
-# systemctl daemon-reload  &>> $logfile
-# validate $? "daemon reloading"
+systemctl daemon-reload  &>> $logfile
+validate $? "daemon reloading"
 
 
-# systemctl enable shipping   &>> $logfile
-# validate $? "enabling shipping"
+systemctl enable shipping   &>> $logfile
+validate $? "enabling shipping"
 
 
-# systemctl start shipping  &>> $logfile
-# validate $? "starting shipping"
+systemctl start shipping  &>> $logfile
+validate $? "starting shipping"
 
 
-# dnf install mysql -y  &>> $logfile
-# validate $? "installing mysql"
+dnf install mysql -y  &>> $logfile
+validate $? "installing mysql"
 
 
 mysql -h mysql.sureshvadde.online -uroot -pRoboShop@1 < /app/schema/shipping.sql  &>> $logfile
