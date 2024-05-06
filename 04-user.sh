@@ -28,8 +28,8 @@ else
 fi
 }
 
-dnf module disable nodejs -y $logfile
-dnf module enable nodejs:18 -y $logfile
+dnf module disable nodejs -y &>> $logfile
+dnf module enable nodejs:18 -y &>> $logfile
 validate $? "enabling" 
 
 dnf install nodejs -y &>> $logfile
