@@ -24,6 +24,7 @@ then
     echo -e "$2 is...$G success $N"
 else
    echo -e "$2 is...$G failure $N"
+fi
 }
 
 dnf module disable nodejs -y $logfile

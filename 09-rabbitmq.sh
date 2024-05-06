@@ -24,6 +24,7 @@ then
     echo -e "$2 is...$G success $N"
 else
    echo -e "$2 is...$G failure $N"
+fi
 }
 
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash  &>> $logfile

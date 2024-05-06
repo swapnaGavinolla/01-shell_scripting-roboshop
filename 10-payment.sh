@@ -24,6 +24,7 @@ then
     echo -e "$2 is...$G success $N"
 else
    echo -e "$2 is...$G failure $N"
+fi
 }
 
 dnf install python36 gcc python3-devel -y  &>> $logfile
