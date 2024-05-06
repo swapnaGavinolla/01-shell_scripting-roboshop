@@ -32,11 +32,11 @@ dnf install maven -y &>> $logfile
 validate $? "installing maven"
 
 
-useradd roboshop  &>> $logfile
-validate $? "creating roboshop user"
+# useradd roboshop  &>> $logfile
+# validate $? "creating roboshop user"
 
-mkdir /app  &>> $logfile
-validate $? "creating app directory"
+# mkdir /app  &>> $logfile
+# validate $? "creating app directory"
 
 curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip  &>> $logfile
 validate $? "downloading shipping zip files"
