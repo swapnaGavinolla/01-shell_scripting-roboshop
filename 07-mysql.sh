@@ -24,8 +24,15 @@ then
     echo -e "$2 is...$G success $N"
 else
    echo -e "$2 is...$R failure $N"
+   exit 1
 fi
 }
+
+dnf module disable mysql -y &>> $logfile
+validate $? "disabling"
+
+cp $code_dir/mysql.repo /etc/yum.repos.d/mysql.repo &>> $logfile
+validate $? "copying repo"
 
 dnf install mysql-community-server -y &>> $logfile
 validate $? "installing"

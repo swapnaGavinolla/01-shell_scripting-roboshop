@@ -24,6 +24,7 @@ then
     echo -e "$2 is...$G success $N"
 else
    echo -e "$2 is...$R failure $N"
+   exit 1
 fi
 }
 
