@@ -78,4 +78,5 @@ validate $? "installing mongo client"
 mongo --host mongodb.sureshvadde.online </app/schema/catalogue.js &>> $logfile
 validate $? "loading schema" 
 
-
+systemctl restart catalogue  &>> $logfile
+validate $? "restarting catalogue" 

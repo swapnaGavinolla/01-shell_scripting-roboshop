@@ -1,15 +1,15 @@
 #!/bin/bash
 
-NAMES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
+NAMES=$@
 INSTANCE_TYPE=""
-IMAGE_ID=ami-0f3c7d07486cad139
-SECURITY_GROUP_ID=sg-0216279832c1ab956
-DOMAIN_NAME=sureshvadde.online
-HOSTED_ZONE_ID=Z061029932O00U328VUBA
+IMAGE_ID=ami-03265a0778a880afb
+SECURITY_GROUP_ID=sg-0b34d8689bd628e3f
+DOMAIN_NAME=joindevops.online
+HOSTED_ZONE_ID=Z0308214GYCUYHGJHT8R
 
 # if mysql or mongodb instance_type should be t3.medium , for all others it is t2.micro
 
-for i in "${NAMES[@]}"
+for i in $@
 do  
     if [[ $i == "mongodb" || $i == "mysql" ]]
     then
@@ -35,4 +35,6 @@ do
     '
 done
 
-
+# imporvement
+# check instance is already created or not
+# check route53 record is already exist, if exist update, otherwise create route53 record
