@@ -19,11 +19,11 @@ fi
 #validating function
 
 validate() {
-if [ $1 == 0]
+if [ $1 == 0 ]
 then 
     echo -e "$2 is...$G success $N"
 else
-   echo -e "$2 is...$G failure $N"
+   echo -e "$2 is...$R failure $N"
 fi
 }
 
