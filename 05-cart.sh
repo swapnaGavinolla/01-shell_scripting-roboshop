@@ -30,7 +30,7 @@ fi
 
 dnf module disable nodejs -y $logfile
 dnf module enable nodejs:18 -y $logfile
-validate $? "creating app directory"
+validate $? "enabling"
 
 dnf install nodejs -y &>> $logfile
 validate $? " installing nodejs" 

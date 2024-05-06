@@ -28,9 +28,12 @@ else
 fi
 }
 
-dnf module disable nodejs -y $logfile
-dnf module enable nodejs:18 -y $logfile
-validate $? "creating app directory" 
+dnf module disable nodejs -y &>> $logfile
+dnf module enable nodejs:18 -y &>> $logfile
+validate $? "enabling" 
+
+dnf install nodejs -y   &>> $logfile
+validate $? "installing" 
 
 useradd roboshop &>> $logfile
 validate $? "adding roboshop user" 
