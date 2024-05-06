@@ -50,3 +50,6 @@ validate $? unzipping
 
 cp $code_dir/roboshop.conf  /etc/nginx/default.d/roboshop.conf &>> $logfile
 validate $? "copying roboshop.conf"
+
+systemctl restart nginx &>> $logfile
+validate $? "restarting nginx"
