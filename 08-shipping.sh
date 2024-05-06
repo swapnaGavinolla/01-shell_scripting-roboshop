@@ -76,7 +76,7 @@ dnf install mysql -y  &>> $logfile
 validate $? "installing mysql"
 
 
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql  &>> $logfile
+mysql -h mysql.sureshvadde.online -uroot -pRoboShop@1 < /app/schema/shipping.sql  &>> $logfile
 validate $? "loading schema"
 
 systemctl restart shipping  &>> $logfile
